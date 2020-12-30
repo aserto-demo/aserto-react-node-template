@@ -1,12 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import { Auth0Provider } from '@auth0/auth0-react'
+import { AsertoProvider } from '@aserto/aserto-react'
+import config from './utils/auth_config.json'
+import history from './utils/history'
+
+// import bootstrap, font-awesome, and cloudfont CSS
+import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.min.css'
+
+// import local styles after default styles so they take precedence
+import './index.css'
+
+const onRedirectCallback = (appState) => {
+  history.push(
+    appState && appState.returnTo
+      ? appState.returnTo
+      : window.location.pathname
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Auth0Provider
+      domain={config.domain}
+      clientId={config.clientId}
+      audience={config.audience}
+      redirectUri={window.location.origin}
+      onRedirectCallback={onRedirectCallback}
+    >
+      <AsertoProvider>
+        <App />
+      </AsertoProvider>
+    </Auth0Provider>,
   </React.StrictMode>,
   document.getElementById('root')
 );

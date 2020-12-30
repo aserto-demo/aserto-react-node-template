@@ -1,0 +1,7 @@
+{
+  "domain": "{DOMAIN}",
+  "clientId": "{CLIENT_ID}",
+  "audience": "{API_IDENTIFIER}",
+  "authorizerServiceUrl": "{AUTHORIZER_SERVICE_URL}",
+  "applicationName": "{APPLICATION_NAME}"
+}
