@@ -7,11 +7,12 @@ import { AsertoProvider } from '@aserto/aserto-react'
 import config from './utils/auth_config.json'
 import history from './utils/history'
 
-// import bootstrap, font-awesome, and cloudfont CSS
+// import bootstrap, font-awesome
 import 'bootstrap/dist/css/bootstrap.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 // import local styles after default styles so they take precedence
+import './theme.css'
 import './index.css'
 
 const onRedirectCallback = (appState) => {

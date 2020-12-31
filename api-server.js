@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const bodyParser = require('body-parser');
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
-const authConfig = require("./src/auth_config.json");
+const authConfig = require("./src/utils/auth_config.json");
 
 // retrieve the authz middleware
 const { jwtAuthz, accessMap } = require("express-jwt-aserto");
@@ -45,12 +45,6 @@ const checkJwt = jwt({
 // use jwt middleware to validate the JWT and extract its claims into the 'user' key
 app.use(checkJwt);
 
-// hack the user name
-app.use((req, res, next) => {
-  req.user.sub = 'euang@contoso.com';
-  next();
-});
-
 // set up middleware to return the access map for this service, passing in authorizer service hostname
 app.use(accessMap({ authorizerServiceUrl, applicationName }));
 
@@ -64,9 +58,5 @@ app.get("/api/external", checkAuthz, (req, res) => {
     msg: "Your access token was successfully validated!"
   });
 });
-
-// register the cars api handlers
-const apiCars = require('./api-cars');
-apiCars.register(app, checkAuthz);
 
 app.listen(port, () => console.log(`API Server listening on port ${port}`));

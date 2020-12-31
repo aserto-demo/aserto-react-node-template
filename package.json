@@ -1,5 +1,5 @@
 {
-  "name": "admin-console-sample",
+  "name": "aserto-react-node-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,9 +14,12 @@
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "express-jwt-aserto": "^1.0.17",
     "font-awesome": "^4.7.0",
     "helmet": "^4.3.1",
     "highlight.js": "^10.5.0",
+    "jwks-rsa": "^1.12.1",
     "morgan": "^1.10.0",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.1",
