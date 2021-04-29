@@ -1,0 +1,45 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@testing-library/user-event"
+    versions:
+    - 12.6.3
+    - 12.7.0
+    - 12.7.1
+    - 12.8.0
+    - 12.8.1
+    - 12.8.3
+    - 13.0.16
+    - 13.0.6
+    - 13.1.1
+    - 13.1.2
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: jwks-rsa
+    versions:
+    - 1.12.2
+    - 1.12.3
+    - 2.0.1
+    - 2.0.2
+  - dependency-name: highlight.js
+    versions:
+    - 10.6.0
+    - 10.7.1
+  - dependency-name: "@testing-library/react"
+    versions:
+    - 11.2.5
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.2
+  - dependency-name: node-notifier
+    versions:
+    - 8.0.1
+  - dependency-name: web-vitals
+    versions:
+    - 1.1.0
